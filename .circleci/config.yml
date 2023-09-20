@@ -59,11 +59,12 @@ jobs:
           command: |
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASS
       - docker/build:
-          image: ntheanh201
-          tag: ml_microservice
+          image: ml_microservice
+          tag: latest
       - run:
           name: Push Docker Image
           command: |
+            docker tag ml_microservice ntheanh201/ml_microservice
             docker push ntheanh201/ml_microservice
 workflows:
   ci:
