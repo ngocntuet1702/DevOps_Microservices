@@ -6,7 +6,7 @@ orbs:
 jobs:
   lint:
     docker:
-      - image: cimg/python:3.8.4
+      - image: cimg/python:3.7.4
     working_directory: ~/repo/project-ml-microservice-kubernetes
     steps:
       - checkout:
@@ -46,7 +46,7 @@ jobs:
             make lint
   build:
     docker:
-      - image: cimg/python:3.8.4
+      - image: cimg/python:3.7.4
     working_directory: ~/repo/project-ml-microservice-kubernetes
     steps:
       - checkout:
