@@ -6,14 +6,14 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=ntheanh201/ml_microservice
+dockerpath=ngocnt91/ml_microservice
 
 # Step 2:  
 # Authenticate & tag
-docker login -u ntheanh201
-docker tag flask_ml_microservice:0.0.1 ntheanh201/ml_microservice
+docker login -u ngocnt91
+docker tag flask_ml_microservice:0.0.1 ngocnt91/ml_microservice
 echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
 # Push image to a docker repository
-docker push ntheanh201/ml_microservice
+docker push ngocnt91/ml_microservice

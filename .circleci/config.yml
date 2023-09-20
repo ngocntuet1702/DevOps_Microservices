@@ -64,8 +64,8 @@ jobs:
       - run:
           name: Push Docker Image
           command: |
-            docker tag ml_microservice ntheanh201/ml_microservice
-            docker push ntheanh201/ml_microservice
+            docker tag ml_microservice ngocnt91/ml_microservice
+            docker push ngocnt91/ml_microservice
 workflows:
   ci:
     jobs:
