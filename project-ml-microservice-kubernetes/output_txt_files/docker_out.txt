@@ -32,6 +32,7 @@ root@c8c3431bbb1c:/home/cloud_user# ./make_prediction.sh > output_txt_files/dock
 root@c8c3431bbb1c:/home/cloud_user# cat output_txt_files/docker_out.txt                        
 Port: 8000                                                                                     
 {                                                                                              
-  "prediction": [                                                                                                                                                      evelopment server in a production environment.
+  "prediction": [
+    20.35373177134412
   ]                                                                                           
 }
