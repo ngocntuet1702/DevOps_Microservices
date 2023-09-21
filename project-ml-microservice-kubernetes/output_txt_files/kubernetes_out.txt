@@ -1,6 +1,36 @@
-Port: 8000
-{
-  "prediction": [
-    20.35373177134412
-  ]
+root@c8c3431bbb1c:/home/cloud_user# ./make_prediction.sh > output_txt_files/kubernetes_out.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                
+                                 Dload  Upload   Total   Spent    Left  Speed                  
+100   260  100    48  100   212    767   3390 --:--:-- --:--:-- --:--:--  4262                 
+root@c8c3431bbb1c:/home/cloud_user# cat output_txt_files/kubernetes_out.txt                    
+Port: 8000                                                                                     
+{                                                                                              
+  "prediction": [                                                                              
+    20.35373177134412                                                                          
+  ]                                                                                            
 }
+
+root@c8c3431bbb1c:/home/cloud_user# kubectl config get-clusters
+NAME
+kind-kind
+root@c8c3431bbb1c:/home/cloud_user# kubectl config get-contexts
+CURRENT   NAME        CLUSTER     AUTHINFO    NAMESPACE
+*         kind-kind   kind-kind   kind-kind   
+root@c8c3431bbb1c:/home/cloud_user# kubectl create deploy --image=ngocnt91/ml_microservice ml-microservice
+deployment.apps/ml-microservice created
+root@c8c3431bbb1c:/home/cloud_user# kubectl get po
+NAME                               READY   STATUS              RESTARTS   AGE
+ml-microservice-5855957479-2bq8s   0/1     ContainerCreating   0          3s
+root@c8c3431bbb1c:/home/cloud_user# kubectl get po
+NAME                               READY   STATUS              RESTARTS   AGE
+ml-microservice-5855957479-2bq8s   0/1     ContainerCreating   0          16s
+root@c8c3431bbb1c:/home/cloud_user# kubectl get po
+NAME                               READY   STATUS              RESTARTS   AGE
+ml-microservice-5855957479-2bq8s   0/1     ContainerCreating   0          20s
+root@c8c3431bbb1c:/home/cloud_user# kubectl get po
+NAME                               READY   STATUS    RESTARTS   AGE
+ml-microservice-5855957479-2bq8s   1/1     Running   0          43s
+root@c8c3431bbb1c:/home/cloud_user# kubectl port-forward deployment/ml-microservice 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000

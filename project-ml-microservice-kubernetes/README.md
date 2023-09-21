@@ -45,6 +45,21 @@ source .devops/bin/activate
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
+    - Install Docker Engine on Ubuntu 22.04:
+        - Go to https://docs.docker.com/engine/install/ubuntu/ and follow the instruction to install Docker Engine
+    - Run `docker run -p 8000:80 ngocnt91/ml_microservice`
+    - Get the output via: `./make_prediction.sh > output_txt_files/docker_out.txt`
+
 * Setup and Configure Kubernetes locally
+    - Install Kind - a tool for running local Kubernetes clusters: `go install sigs.k8s.io/kind@v0.20.0 && kind create cluster`
+    - Make kubectl use Kind cluster: `kubectl cluster-info --context kind-kind`
+
 * Create Flask app in Container
+    - Build docker image: `docker build -t ml_microservice .`
+    - Run the container: `docker run -p 8000:80 -d ml_microservice`
 * Run via kubectl
+    - Export dockerhub ID: ngocnt91/ml_microservice
+    - Create deployment from dockerhub image: `kubectl create deploy --image=ngocnt91/ml_microservice ml-microservice`
+    - Check if the pod is READY: `kubectl get po`
+    - Forward container port to host: `kubectl port-forward deployment/ml-microservice 8000:80`
+    - Get the output via: `./make_prediction.sh > output_txt_files/kubernetes_out.txt`

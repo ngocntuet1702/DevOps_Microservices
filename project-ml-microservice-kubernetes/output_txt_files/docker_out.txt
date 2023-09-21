@@ -1,6 +1,37 @@
-Port: 8000
-{
-  "prediction": [
-    20.35373177134412
-  ]
+root@c8c3431bb -p 8000:80 ngocnt91/ml_microservice
+Unable to find image 'ngocnt91/ml_microservice:latest' locally
+latest: Pulling from ngocnt91/ml_microservice
+6f2f362378c5: Pull complete 
+494c27a8a6b8: Pull complete 
+7596bb83081b: Pull complete 
+372744b62d49: Pull complete 
+615db220d76c: Pull complete
+39aa0c89bda1: Pull complete 
+ac275157d894: Pull complete 
+98d16dec829a: Pull complete 
+c8514b1c6524: Pull complete 
+ec0d0dff2980: Pull complete 
+6486ab76904d: Pull complete 
+6177908fb112: Pull complete 
+Digest: sha256:141ba3a776d946233134e3d9ba8114f847b9e16a1a7ce27c5a09d60a783ec2fa
+Status: Downloaded newer image for ngocnt91/ml_microservice:latest
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 194-414-639
+
+root@c8c3431bbb1c:/home/cloud_user# ./make_prediction.sh > output_txt_files/docker_out.txt     
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                
+                                 Dload  Upload   Total   Spent    Left  Speed                  
+100   260  100    48  100   212   1090   4818 --:--:-- --:--:-- --:--:--  6046                 
+root@c8c3431bbb1c:/home/cloud_user# cat output_txt_files/docker_out.txt                        
+Port: 8000                                                                                     
+{                                                                                              
+  "prediction": [                                                                                                                                                      evelopment server in a production environment.
+  ]                                                                                           
 }
